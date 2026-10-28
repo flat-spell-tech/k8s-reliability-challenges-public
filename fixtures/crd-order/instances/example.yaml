@@ -1,0 +1,7 @@
+apiVersion: reliability.flatspell.io/v1
+kind: Widget
+metadata:
+  name: ordered-widget
+  namespace: workbook-06
+spec:
+  message: CRDs must exist before this resource can be applied

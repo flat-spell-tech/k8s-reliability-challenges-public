@@ -1,0 +1,6 @@
+apiVersion: schema.reliability.flatspell.io/v1
+kind: SchemaRecord
+metadata:
+  name: example
+spec:
+  mode: {{ .Values.mode | quote }}

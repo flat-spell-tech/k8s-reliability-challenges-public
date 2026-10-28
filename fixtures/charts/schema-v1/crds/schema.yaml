@@ -1,0 +1,23 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: schemarecords.schema.reliability.flatspell.io
+spec:
+  group: schema.reliability.flatspell.io
+  scope: Namespaced
+  names: {plural: schemarecords, singular: schemarecord, kind: SchemaRecord}
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              required: [mode]
+              properties:
+                mode:
+                  type: string
+                  enum: ['legacy']

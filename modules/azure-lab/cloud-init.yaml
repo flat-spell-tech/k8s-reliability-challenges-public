@@ -1,0 +1,5 @@
+#cloud-config
+package_update: true
+packages: [ca-certificates, curl, jq, git, unzip, gnupg, dnsutils]
+runcmd:
+  - [bash, -ceu, 'curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /usr/share/keyrings/microsoft-azure-cli.gpg; echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft-azure-cli.gpg] https://packages.microsoft.com/repos/azure-cli/ jammy main" > /etc/apt/sources.list.d/azure-cli.list; apt-get update; apt-get install -y azure-cli']

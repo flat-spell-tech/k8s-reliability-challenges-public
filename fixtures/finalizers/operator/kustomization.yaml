@@ -1,0 +1,5 @@
+namespace: workbook-09
+resources: [operator.yaml]
+configMapGenerator:
+  - name: cleanup-operator-code
+    files: [controller.py]

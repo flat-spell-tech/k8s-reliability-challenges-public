@@ -1,0 +1,29 @@
+name: Validate reliability workbooks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.13.5'
+      - uses: azure/setup-helm@v4
+        with:
+          version: 'v4.3.1'
+      - uses: azure/setup-kubectl@v4
+        with:
+          version: 'v1.35.2'
+      - name: Install test tools
+        run: |
+          python3 -m pip install --user PyYAML==6.0.3
+          mkdir -p "$RUNNER_TEMP/terraform-provider-cache"
+          echo "TF_PLUGIN_CACHE_DIR=$RUNNER_TEMP/terraform-provider-cache" >> "$GITHUB_ENV"
+      - name: Validate all roots, fixtures, and recovery contracts without Azure credentials
+        run: bash scripts/validate.sh

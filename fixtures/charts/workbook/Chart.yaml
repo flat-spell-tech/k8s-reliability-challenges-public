@@ -1,0 +1,5 @@
+apiVersion: v2
+name: workbook
+version: 0.1.0
+description: Minimal workload and optional failure fixtures for isolated reliability labs
+type: application

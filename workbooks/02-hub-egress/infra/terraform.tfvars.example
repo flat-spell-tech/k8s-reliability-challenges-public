@@ -1,0 +1,10 @@
+subscription_id = "00000000-0000-0000-0000-000000000000"
+ssh_public_key = "ssh-ed25519 REPLACE_WITH_YOUR_PUBLIC_KEY lab"
+location = "eastus"
+prefix = "fstlab"
+fault_enabled = false
+kubernetes_version = "REPLACE_WITH_SUPPORTED_PATCH_VERSION"
+# node_vm_size = "Standard_D4s_v5"
+# runner_vm_size = "Standard_B2ms"
+# node_count = 1
+# Separate states create separate isolated networks; never peer these labs to production.

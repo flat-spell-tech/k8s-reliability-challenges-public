@@ -1,0 +1,7 @@
+apiVersion: cleanup.reliability.flatspell.io/v1
+kind: CleanupTask
+metadata:
+  name: example
+  namespace: workbook-09
+spec:
+  allocationName: allocation-example
